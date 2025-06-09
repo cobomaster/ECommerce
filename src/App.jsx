@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <h1> Hola, si ves esto es que vamos bien </h1>
+      <h1> E-Commerce en React </h1>
     </>
   )
 }
