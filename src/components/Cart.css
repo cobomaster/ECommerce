@@ -1,0 +1,28 @@
+.cart {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  min-height: 100px; /* Asegura que el carrito tenga un tamaño visible */
+}
+
+.cart h2 {
+  margin-bottom: 1rem;
+}
+
+.cart ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart li {
+  margin-bottom: 0.5rem;
+}
+
+.cart p {
+  font-weight: bold;
+  font-size: 24px;
+  background-color: yellow;
+  color: black;
+}
