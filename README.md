@@ -1,14 +1,10 @@
-Historia 9: Gestionar la cantidad de productos en el carrito 
+Historia 10: Vaciar carrito 
+
 ## Objetivos
-Como usuario, quiero poder gestionar la cantidad de productos en mi carrito para poder
-agregar o eliminar productos según lo desee 
+como usuario, quiero poder vaciar todo el carrito con un solo botón para gestionar mis compras de forma mas rapida
 
 ## Tareas
-1) Añadir funcionalidades para incrementar y decrementar la cantidad de productos 
-   en el carrito desde el componente Cart
-2) Actualizar la cantidad en el estado cuando se haga clic en los botones de incremento
-   o decremento
-3) Actualizar el precio total automáticamente cuando se modifique la cantidad de un       producto
-4) Eliminar productos del carrito (Opcional)
-5) Comprobar que el carrito siempre muestra el numero correcto de productos y el precio total
-
+1) Añadir un botón "Vaciar carrito" en el componente Cart
+2) Al hacer clic en el botón, eliminar todos los productos del carrito (Dejarlo vacío)
+3) Mostrar un mensaje de confirmación o feedback visual cuando el carrito se vacíe
+4) Comprobar que el carrito se vacía correctamente y el total se actualiza a 0 

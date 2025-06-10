@@ -30,6 +30,12 @@ function Cart({ carrito, setCarrito }) {
     setCarrito((prevCarrito) => prevCarrito.filter((item) => item.id !== id));
   };
 
+  // NUEVO: Vaciar carrito
+  const handleVaciarCarrito = () => {
+    setCarrito([]);
+    alert("¡Carrito vaciado correctamente!");
+  };
+
   return (
     <div className="cart">
       <h2>🛒 Carrito</h2>
@@ -37,6 +43,9 @@ function Cart({ carrito, setCarrito }) {
         <p>El carrito está vacío.</p>
       ) : (
         <>
+          <button onClick={handleVaciarCarrito} style={{ marginBottom: "10px" }}>
+            Vaciar carrito
+          </button>
           <ul>
             {carrito.map((producto) => (
               <li key={producto.id}>
