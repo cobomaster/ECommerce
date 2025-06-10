@@ -1,11 +1,10 @@
-Historia 16: Feedback visual
+Historia 17: Filtros y búsqueda de productos
 
 ## Objetivos
-Como usuario, quiero ver mensajes de éxito o error al añadir o eliminar productos del carrito y al finalizar la compra, para saber si mis acciones se han realizado correctamente.
+Como usuario, quiero poder buscar productos por nombre y filtrar por categoría, para encontrar más fácilmente lo que busco.
 
 ## Tareas
-1) Mostrar un mensaje de éxito al añadir un producto al carrito.
-2) Mostrar un mensaje de éxito al eliminar un producto o vaciar el carrito.
-3) Mostrar un mensaje de confirmación al finalizar la compra.
-4) Mostrar mensajes de error si ocurre algún problema (por ejemplo, intentar finalizar compra con el carrito vacío).
-5) Los mensajes deben ser claros y desaparecer automáticamente tras unos segundos o al realizar otra acción.
+1) Añadir un campo de búsqueda en la página de productos que filtre por nombre.
+2) (Opcional) Añadir un filtro por categoría si tus productos tienen esa propiedad.
+3) Mostrar solo los productos que coincidan con la búsqueda o el filtro seleccionado.
+4) Limpiar la búsqueda o el filtro debe mostrar todos los productos de nuevo.
