@@ -1,8 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Home from "./pages/Home";
 import Productos from "./pages/Productos";
 import DetalleProducto from "./pages/DetalleProducto";
-import Feedback from "./components/Feedback"; // Importa el componente de feedback
+import Feedback from "./components/Feedback";
+import Navbar from "./components/Navbar";
 
 const productos = [
   { id: 1, title: "Camiseta React", price: 20, image: "camiseta.jpeg", descripcion: "Camiseta cómoda y moderna para fans de React." },
@@ -39,17 +41,18 @@ function App() {
     });
   };
 
-  // Puedes pasar setFeedback a Productos y Cart para usarlo en eliminar, vaciar, etc.
   return (
     <>
+      <Navbar />
       <Feedback
         mensaje={feedback.mensaje}
         tipo={feedback.tipo}
         onClose={() => setFeedback({ mensaje: "", tipo: "" })}
       />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route
-          path="/"
+          path="/productos"
           element={
             <Productos
               productos={productos}
