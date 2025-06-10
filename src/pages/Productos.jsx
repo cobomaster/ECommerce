@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import Cart from "../components/Cart";
-import "./Productos.css";  
+import "./Productos.css";
 
 const productos = [
   { id: 1, title: "Camiseta React", price: 20, image: "Fotos/camiseta.jpeg" },
@@ -10,20 +10,35 @@ const productos = [
 ];
 
 function Productos() {
-  const [carrito, setCarrito] = useState([]);
+  // Recuperar carrito desde localStorage al cargar la app
+  const [carrito, setCarrito] = useState(() => {
+    const guardado = localStorage.getItem("carrito");
+    return guardado ? JSON.parse(guardado) : [];
+  });
+
+  // Guardar carrito en localStorage cada vez que cambie
+  useEffect(() => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+  }, [carrito]);
+
+  // (Opcional) Feedback visual al restaurar el carrito
+  useEffect(() => {
+    if (carrito.length > 0) {
+      // Puedes mostrar un mensaje visual aquí si quieres
+      // alert("¡Carrito restaurado correctamente!");
+    }
+  }, []);
 
   const handleAddToCart = (producto) => {
     setCarrito((prevCarrito) => {
       const productoEnCarrito = prevCarrito.find((item) => item.id === producto.id);
       if (productoEnCarrito) {
-        // Suma 1 a la cantidad existente
         return prevCarrito.map((item) =>
           item.id === producto.id
             ? { ...item, cantidad: Number(item.cantidad || 1) + 1 }
             : item
         );
       } else {
-        // Añade el producto con cantidad: 1
         return [...prevCarrito, { ...producto, cantidad: 1 }];
       }
     });

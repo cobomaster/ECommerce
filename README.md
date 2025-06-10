@@ -1,10 +1,10 @@
-Historia 10: Vaciar carrito 
+Historia 11: Persistencia del carrito
 
 ## Objetivos
-como usuario, quiero poder vaciar todo el carrito con un solo botón para gestionar mis compras de forma mas rapida
+Como usuario, quiero que mi carrito se guarde aunque cierre el navegador, para no perder mis productos si recargo la página.
 
 ## Tareas
-1) Añadir un botón "Vaciar carrito" en el componente Cart
-2) Al hacer clic en el botón, eliminar todos los productos del carrito (Dejarlo vacío)
-3) Mostrar un mensaje de confirmación o feedback visual cuando el carrito se vacíe
-4) Comprobar que el carrito se vacía correctamente y el total se actualiza a 0 
+1) Guardar el estado del carrito en localStorage cada vez que cambie.
+2) Al cargar la aplicación, recuperar el carrito desde localStorage si existe.
+3) Comprobar que el carrito se mantiene tras recargar la página o cerrar y abrir el navegador.
+4) Mostrar feedback visual si el carrito se ha restaurado correctamente (opcional).
