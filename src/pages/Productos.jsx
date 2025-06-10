@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ProductCard from "../components/ProductCard";
 import Cart from "../components/Cart";
-import "./Productos.css";  // Importando los estilos
+import "./Productos.css";  
 
 const productos = [
   { id: 1, title: "Camiseta React", price: 20, image: "Fotos/camiseta.jpeg" },
@@ -16,10 +16,14 @@ function Productos() {
     setCarrito((prevCarrito) => {
       const productoEnCarrito = prevCarrito.find((item) => item.id === producto.id);
       if (productoEnCarrito) {
+        // Suma 1 a la cantidad existente
         return prevCarrito.map((item) =>
-          item.id === producto.id ? { ...item, cantidad: item.cantidad + 1 } : item
+          item.id === producto.id
+            ? { ...item, cantidad: Number(item.cantidad || 1) + 1 }
+            : item
         );
       } else {
+        // Añade el producto con cantidad: 1
         return [...prevCarrito, { ...producto, cantidad: 1 }];
       }
     });
@@ -27,7 +31,7 @@ function Productos() {
 
   return (
     <div>
-      <Cart carrito={carrito} />
+      <Cart carrito={carrito} setCarrito={setCarrito} />
       <div className="productos-grid">
         {productos.map((producto) => (
           <ProductCard

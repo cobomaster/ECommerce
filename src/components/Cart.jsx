@@ -1,10 +1,34 @@
 import "./Cart.css";
 
-function Cart({ carrito }) {
-  console.log("Renderizando carrito:", carrito);
+function Cart({ carrito, setCarrito }) {
+  const total = carrito.reduce(
+    (sum, item) => sum + Number(item.price) * Number(item.cantidad || 1),
+    0
+  );
 
-  // Calcular el total del carrito
-  const total = carrito.reduce((sum, item) => sum + item.price * item.cantidad, 0);
+  const handleIncrement = (id) => {
+    setCarrito((prevCarrito) =>
+      prevCarrito.map((item) =>
+        item.id === id
+          ? { ...item, cantidad: Number(item.cantidad || 1) + 1 }
+          : item
+      )
+    );
+  };
+
+  const handleDecrement = (id) => {
+    setCarrito((prevCarrito) =>
+      prevCarrito.map((item) =>
+        item.id === id && Number(item.cantidad || 1) > 1
+          ? { ...item, cantidad: Number(item.cantidad || 1) - 1 }
+          : item
+      )
+    );
+  };
+
+  const handleRemove = (id) => {
+    setCarrito((prevCarrito) => prevCarrito.filter((item) => item.id !== id));
+  };
 
   return (
     <div className="cart">
@@ -16,7 +40,15 @@ function Cart({ carrito }) {
           <ul>
             {carrito.map((producto) => (
               <li key={producto.id}>
-                {producto.title} - Cantidad: {producto.cantidad} - {producto.price} € cada uno
+                {producto.title} - Cantidad: {producto.cantidad || 1} - {producto.price} € cada uno
+                <button onClick={() => handleIncrement(producto.id)}>+</button>
+                <button
+                  onClick={() => handleDecrement(producto.id)}
+                  disabled={Number(producto.cantidad || 1) <= 1}
+                >
+                  -
+                </button>
+                <button onClick={() => handleRemove(producto.id)}>Eliminar</button>
               </li>
             ))}
           </ul>
