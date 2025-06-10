@@ -1,6 +1,10 @@
+import { useState } from "react";
 import "./Cart.css";
 
 function Cart({ carrito, setCarrito }) {
+  const [mostrarResumen, setMostrarResumen] = useState(false);
+  const [compraConfirmada, setCompraConfirmada] = useState(false);
+
   const total = carrito.reduce(
     (sum, item) => sum + Number(item.price) * Number(item.cantidad || 1),
     0
@@ -30,11 +34,53 @@ function Cart({ carrito, setCarrito }) {
     setCarrito((prevCarrito) => prevCarrito.filter((item) => item.id !== id));
   };
 
-  // NUEVO: Vaciar carrito
   const handleVaciarCarrito = () => {
     setCarrito([]);
-    alert("¡Carrito vaciado correctamente!");
   };
+
+  // NUEVO: Finalizar compra
+  const handleFinalizarCompra = () => {
+    setMostrarResumen(true);
+  };
+
+  const handleConfirmarCompra = () => {
+    setCompraConfirmada(true);
+    setCarrito([]);
+    setMostrarResumen(false);
+  };
+
+  if (compraConfirmada) {
+    return (
+      <div className="cart">
+        <h2>¡Compra confirmada!</h2>
+        <p>Gracias por tu compra. Tu carrito ha sido vaciado.</p>
+      </div>
+    );
+  }
+
+  if (mostrarResumen) {
+    return (
+      <div className="cart">
+        <h2>Resumen de tu pedido</h2>
+        <ul>
+          {carrito.map((producto) => (
+            <li key={producto.id}>
+              {producto.title} - Cantidad: {producto.cantidad || 1} - {producto.price} € cada uno
+            </li>
+          ))}
+        </ul>
+        <p style={{ fontWeight: "bold", fontSize: "20px" }}>
+          Total: <strong>{total} €</strong>
+        </p>
+        <button onClick={handleConfirmarCompra} style={{ marginRight: "10px" }}>
+          Confirmar compra
+        </button>
+        <button onClick={() => setMostrarResumen(false)}>
+          Volver al carrito
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="cart">
@@ -64,6 +110,12 @@ function Cart({ carrito, setCarrito }) {
           <p style={{ fontWeight: "bold", fontSize: "24px", backgroundColor: "yellow", color: "black" }}>
             Total: <strong>{total} €</strong>
           </p>
+          <button
+            onClick={handleFinalizarCompra}
+            style={{ marginTop: "10px", backgroundColor: "green", color: "white" }}
+          >
+            Finalizar compra
+          </button>
         </>
       )}
     </div>

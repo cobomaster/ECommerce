@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import Cart from "../components/Cart";
+import Header from "../components/Header";
 import "./Productos.css";
 
 const productos = [
@@ -21,14 +22,6 @@ function Productos() {
     localStorage.setItem("carrito", JSON.stringify(carrito));
   }, [carrito]);
 
-  // (Opcional) Feedback visual al restaurar el carrito
-  useEffect(() => {
-    if (carrito.length > 0) {
-      // Puedes mostrar un mensaje visual aquí si quieres
-      // alert("¡Carrito restaurado correctamente!");
-    }
-  }, []);
-
   const handleAddToCart = (producto) => {
     setCarrito((prevCarrito) => {
       const productoEnCarrito = prevCarrito.find((item) => item.id === producto.id);
@@ -46,6 +39,7 @@ function Productos() {
 
   return (
     <div>
+      <Header carrito={carrito} />
       <Cart carrito={carrito} setCarrito={setCarrito} />
       <div className="productos-grid">
         {productos.map((producto) => (

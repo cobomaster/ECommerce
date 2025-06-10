@@ -1,10 +1,11 @@
-Historia 11: Persistencia del carrito
+Historia 13: Resumen y confirmación de compra
 
 ## Objetivos
-Como usuario, quiero que mi carrito se guarde aunque cierre el navegador, para no perder mis productos si recargo la página.
+Como usuario, quiero ver un resumen de mi pedido y una pantalla de confirmación al finalizar la compra, para saber qué he comprado y cuánto voy a pagar.
 
 ## Tareas
-1) Guardar el estado del carrito en localStorage cada vez que cambie.
-2) Al cargar la aplicación, recuperar el carrito desde localStorage si existe.
-3) Comprobar que el carrito se mantiene tras recargar la página o cerrar y abrir el navegador.
-4) Mostrar feedback visual si el carrito se ha restaurado correctamente (opcional).
+1) Añadir un botón "Finalizar compra" en el carrito.
+2) Al pulsar el botón, mostrar un resumen con los productos, cantidades y el total.
+3) Mostrar un mensaje de confirmación de compra.
+4) Vaciar el carrito tras la confirmación.
+5) Comprobar que el carrito queda vacío y el usuario ve el mensaje de confirmación.
