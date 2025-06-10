@@ -1,0 +1,56 @@
+.formulario-envio {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #f9f9f9;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-family: inherit;
+}
+
+.formulario-envio h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.formulario-envio label {
+  display: block;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.formulario-envio input[type="text"],
+.formulario-envio input[type="tel"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.formulario-envio button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+.formulario-envio button[type="submit"]:hover {
+  background: #388e3c;
+}
+
+.formulario-envio p {
+  color: red;
+  margin-bottom: 12px;
+  text-align: center;
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FormularioEnvio from "../components/FormularioEnvio";
+import "./Cart.css"; // <--- Importa el CSS aquí
 
 function Cart({ carrito, setCarrito }) {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);

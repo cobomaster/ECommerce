@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./FormularioEnvio.css";
 
 function FormularioEnvio({ onEnviar, datosPrevios }) {
   const [form, setForm] = useState(
@@ -21,7 +22,7 @@ function FormularioEnvio({ onEnviar, datosPrevios }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: 400, margin: "0 auto", background: "#f9f9f9", padding: 20, borderRadius: 8, border: "1px solid #ccc" }}>
+    <form className="formulario-envio" onSubmit={handleSubmit}>
       <h2>Datos de envío</h2>
       <label>
         Nombre:
@@ -32,7 +33,6 @@ function FormularioEnvio({ onEnviar, datosPrevios }) {
           onChange={handleChange}
         />
       </label>
-      <br />
       <label>
         Dirección:
         <input
@@ -42,7 +42,6 @@ function FormularioEnvio({ onEnviar, datosPrevios }) {
           onChange={handleChange}
         />
       </label>
-      <br />
       <label>
         Ciudad:
         <input
@@ -52,7 +51,6 @@ function FormularioEnvio({ onEnviar, datosPrevios }) {
           onChange={handleChange}
         />
       </label>
-      <br />
       <label>
         Teléfono:
         <input
@@ -62,9 +60,8 @@ function FormularioEnvio({ onEnviar, datosPrevios }) {
           onChange={handleChange}
         />
       </label>
-      <br />
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <button type="submit" style={{ marginTop: 10 }}>Continuar</button>
+      {error && <p>{error}</p>}
+      <button type="submit">Continuar</button>
     </form>
   );
 }
