@@ -1,9 +1,9 @@
 import { useState } from "react";
-import "./Cart.css";
+import FormularioEnvio from "../components/FormularioEnvio";
 
 function Cart({ carrito, setCarrito }) {
-  const [mostrarResumen, setMostrarResumen] = useState(false);
-  const [compraConfirmada, setCompraConfirmada] = useState(false);
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const [datosEnvio, setDatosEnvio] = useState(null);
 
   const total = carrito.reduce(
     (sum, item) => sum + Number(item.price) * Number(item.cantidad || 1),
@@ -38,27 +38,20 @@ function Cart({ carrito, setCarrito }) {
     setCarrito([]);
   };
 
-  // NUEVO: Finalizar compra
   const handleFinalizarCompra = () => {
-    setMostrarResumen(true);
+    setMostrarFormulario(true);
   };
 
-  const handleConfirmarCompra = () => {
-    setCompraConfirmada(true);
-    setCarrito([]);
-    setMostrarResumen(false);
+  const handleEnviarFormulario = (datos) => {
+    setDatosEnvio(datos);
+    setMostrarFormulario(false);
   };
 
-  if (compraConfirmada) {
-    return (
-      <div className="cart">
-        <h2>¡Compra confirmada!</h2>
-        <p>Gracias por tu compra. Tu carrito ha sido vaciado.</p>
-      </div>
-    );
+  if (mostrarFormulario) {
+    return <FormularioEnvio onEnviar={handleEnviarFormulario} />;
   }
 
-  if (mostrarResumen) {
+  if (datosEnvio) {
     return (
       <div className="cart">
         <h2>Resumen de tu pedido</h2>
@@ -69,15 +62,16 @@ function Cart({ carrito, setCarrito }) {
             </li>
           ))}
         </ul>
-        <p style={{ fontWeight: "bold", fontSize: "20px" }}>
+        <p style={{ fontWeight: "bold", fontSize: "24px", backgroundColor: "yellow", color: "black" }}>
           Total: <strong>{total} €</strong>
         </p>
-        <button onClick={handleConfirmarCompra} style={{ marginRight: "10px" }}>
-          Confirmar compra
-        </button>
-        <button onClick={() => setMostrarResumen(false)}>
-          Volver al carrito
-        </button>
+        <div style={{ marginTop: "20px", padding: "16px", border: "1px solid #ccc", borderRadius: "8px", background: "#f9f9f9" }}>
+          <h3>Datos de envío</h3>
+          <p><strong>Nombre:</strong> {datosEnvio.nombre}</p>
+          <p><strong>Dirección:</strong> {datosEnvio.direccion}</p>
+          <p><strong>Ciudad:</strong> {datosEnvio.ciudad}</p>
+          <p><strong>Teléfono:</strong> {datosEnvio.telefono}</p>
+        </div>
       </div>
     );
   }
