@@ -1,11 +1,11 @@
-Historia 13: Resumen y confirmación de compra
+Historia 14: Ver detalles de producto
 
 ## Objetivos
-Como usuario, quiero ver un resumen de mi pedido y una pantalla de confirmación al finalizar la compra, para saber qué he comprado y cuánto voy a pagar.
+Como usuario, quiero poder hacer clic en un producto y ver más detalles (descripción, imagen grande, etc.) para decidir mejor mi compra.
 
 ## Tareas
-1) Añadir un botón "Finalizar compra" en el carrito.
-2) Al pulsar el botón, mostrar un resumen con los productos, cantidades y el total.
-3) Mostrar un mensaje de confirmación de compra.
-4) Vaciar el carrito tras la confirmación.
-5) Comprobar que el carrito queda vacío y el usuario ve el mensaje de confirmación.
+1) Crear una vista o componente de detalle de producto.
+2) Permitir que al hacer clic en un producto desde la lista, se muestre su detalle.
+3) Mostrar información ampliada: imagen grande, nombre, precio y descripción.
+4) Añadir un botón para volver a la lista de productos.
+5) (Opcional) Permitir añadir el producto al carrito desde la vista de detalle.
