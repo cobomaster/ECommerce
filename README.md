@@ -1,11 +1,11 @@
-Historia 15: Formulario de datos de envío (simulado)
+Historia 16: Feedback visual
 
 ## Objetivos
-Como usuario, quiero rellenar mis datos de envío antes de confirmar la compra, para simular el proceso real de una tienda online.
+Como usuario, quiero ver mensajes de éxito o error al añadir o eliminar productos del carrito y al finalizar la compra, para saber si mis acciones se han realizado correctamente.
 
 ## Tareas
-1) Crear un formulario que pida nombre, dirección, ciudad y teléfono.
-2) Mostrar el formulario al pulsar "Finalizar compra" en el carrito o en el resumen del pedido.
-3) Validar que todos los campos estén completos antes de permitir continuar.
-4) Al enviar el formulario, mostrar un resumen de los datos introducidos junto con el resumen del pedido.
-5) (Opcional) Permitir editar los datos antes de confirmar la compra.
+1) Mostrar un mensaje de éxito al añadir un producto al carrito.
+2) Mostrar un mensaje de éxito al eliminar un producto o vaciar el carrito.
+3) Mostrar un mensaje de confirmación al finalizar la compra.
+4) Mostrar mensajes de error si ocurre algún problema (por ejemplo, intentar finalizar compra con el carrito vacío).
+5) Los mensajes deben ser claros y desaparecer automáticamente tras unos segundos o al realizar otra acción.
