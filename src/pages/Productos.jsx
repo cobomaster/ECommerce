@@ -2,8 +2,7 @@ import { useState } from "react";
 import ProductCard from "../components/ProductCard";
 import Cart from "../components/Cart";
 import Header from "../components/Header";
-import "../pages/Home.css";
-
+import "./Productos.css"; // Asegúrate de tener un CSS para estilos
 
 function Productos({ productos, carrito, setCarrito, onAddToCart }) {
   const [busqueda, setBusqueda] = useState("");
