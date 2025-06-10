@@ -2,7 +2,8 @@ import { useState } from "react";
 import ProductCard from "../components/ProductCard";
 import Cart from "../components/Cart";
 import Header from "../components/Header";
-import "./Productos.css";
+import "../pages/Home.css";
+
 
 function Productos({ productos, carrito, setCarrito, onAddToCart }) {
   const [busqueda, setBusqueda] = useState("");
@@ -58,9 +59,11 @@ function Productos({ productos, carrito, setCarrito, onAddToCart }) {
               onAddToCart={() => onAddToCart(producto)}
             />
           ))
+          
         )}
       </div>
     </div>
+    
   );
 }
 
